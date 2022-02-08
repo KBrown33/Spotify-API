@@ -1,22 +1,16 @@
 package com.example.spotifyapp.model;
 
 
-
 import javax.persistence.*;
 
 @Entity
-@Table(name = "songs")
-public class Song {
-
-
-     @Id
+@Table(name = "albums")
+public class Album {
+      @Id
     @Column
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column
-    private String title;
-
-    @Column
-    private String genre;
+    private String track;
 }
