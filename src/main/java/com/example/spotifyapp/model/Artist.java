@@ -2,6 +2,7 @@ package com.example.spotifyapp.model;
 
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
 @Table(name = "artists")
@@ -16,6 +17,9 @@ public class Artist {
     @Column
     private String name;
 
-//    @Column
-//    private String album;
+    @OneToMany(mappedBy = "artist",
+            fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL
+    )
+    private Set<Song> artist;
 }
