@@ -27,8 +27,8 @@ public class LyricController {
         return "updating the song with the id of " + lyricId + body;
     }
 
-    @DeleteMapping("/favoriteSongs/{favoriteFongId}")
-    public String deleteFavoriteSongs(@PathVariable(value = "favoriteSongId") Long favoriteSongId) {
-        return "deleting the favoriteSong with the id of " + favoriteSongId;
+    @DeleteMapping("/lyrics/{lyricId}")
+    public String deleteFavoriteSongs(@PathVariable(value = "lyricId") Long lyricId) {
+        return "deleting the lyric with the id of " + lyricId;
     }
 }

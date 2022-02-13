@@ -15,4 +15,6 @@ public class Lyric {
     @Column
     private String text;
 
+    @OneToOne(mappedBy = "lyric")
+    private Song song;
 }
