@@ -7,5 +7,7 @@
 //
 //public interface SongRepository extends JpaRepository<Song, Long> {
 //    Song findBySongId(Long songId);
-//    List<Song> findSongsByArtistId (Long artist_id);
+//    Song findSongsByLyricId(Long lyricId);
+//    List<Song> findSongsByAlbumId(Long albumId);
+//    List<Song> findSongsByArtistId (Long artistId);
 //}

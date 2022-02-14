@@ -1,34 +1,48 @@
 package com.example.spotifyapp.controller;
 
 
+import com.example.spotifyapp.model.Album;
+import com.example.spotifyapp.model.Lyric;
+import com.example.spotifyapp.service.AlbumService;
+import com.example.spotifyapp.service.LyricService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping(path = "/api")
 public class LyricController {
 
-     @GetMapping(path = "/lyrics/")
-    public String getLyrics() {
-            return "get all lyrics";
+
+    private LyricService lyricService;
+    @Autowired
+    public void setLyricService(LyricService lyricService) {
+        this.lyricService = lyricService;
     }
 
+     @GetMapping(path = "/lyrics/")
+     public List<Lyric> getAllLyrics() {
+         return  lyricService.getAllLyrics();
+     }
+
     @GetMapping(path = "/lyrics/{lyricId}")
-    public String getFavoriteSongs(@PathVariable Long lyricId) {
-        return "getting the lyric with the id of " + lyricId;
+    public Lyric getLyrics(@PathVariable Long lyricId) {
+        return lyricService.getLyrics(lyricId);
     }
 
     @PostMapping("/lyrics/")
-    public String createLyrics(@RequestBody String body) {
-        return "creating a lyrics " + body;
+    public Lyric createLyrics(@RequestBody Lyric body) {
+        return lyricService.createLyrics(body);
     }
 
     @PutMapping("/lyrics/{lyricId}")
-    public String updateLyrics(@PathVariable(value = "lyricId") Long lyricId, @RequestBody String body) {
-        return "updating the song with the id of " + lyricId + body;
+    public Lyric updateLyrics(@PathVariable(value = "lyricId") Long lyricId, @RequestBody Lyric body) {
+        return lyricService.updateLyrics(lyricId, body);
     }
 
     @DeleteMapping("/lyrics/{lyricId}")
-    public String deleteFavoriteSongs(@PathVariable(value = "lyricId") Long lyricId) {
-        return "deleting the lyric with the id of " + lyricId;
+    public String deleteLyrics(@PathVariable(value = "lyricId") Long lyricId) {
+        return lyricService .deleteLyrics(lyricId);
     }
 }
