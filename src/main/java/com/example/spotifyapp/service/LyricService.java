@@ -5,7 +5,7 @@ import com.example.spotifyapp.model.Lyric;
 import com.example.spotifyapp.repository.AlbumRepository;
 import com.example.spotifyapp.repository.ArtistRepository;
 import com.example.spotifyapp.repository.LyricRepository;
-//import com.example.spotifyapp.repository.SongRepository;
+import com.example.spotifyapp.repository.SongRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
