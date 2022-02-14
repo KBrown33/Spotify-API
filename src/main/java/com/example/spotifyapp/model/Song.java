@@ -2,10 +2,12 @@ package com.example.spotifyapp.model;
 
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 
 @Entity
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Table(name = "songs")
 public class Song {
 
@@ -21,13 +23,13 @@ public class Song {
     @Column
     private String genre;
 
-    // song is belongs to an album
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "album_id", nullable = false)
     private Album album;
 
 
-
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "artist_id", nullable = false)
     private Artist artist;
@@ -79,7 +81,7 @@ public class Song {
     public void setLyric(Lyric lyric) {
         this.lyric = lyric;
     }
-
+    @JsonIgnore
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "lyric_id")
     private Lyric lyric;
