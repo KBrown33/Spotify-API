@@ -36,7 +36,7 @@ public class ArtistService {
         return  artist;
     }
 
-    public Artist createArtist(@RequestBody Artist body) {
+    public Artist createArtist(Artist body) {
         return artistRepository.save(body);
     }
 

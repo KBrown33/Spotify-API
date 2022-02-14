@@ -40,7 +40,7 @@ public class LyricService {
         return  lyric;
     }
 
-    public Lyric createLyrics(@RequestBody Lyric body) {
+    public Lyric createLyrics( Lyric body) {
         return lyricRepository.save(body);
     }
 

@@ -42,7 +42,7 @@ public class SongService{
         return  song;
     }
 
-    public Song createSongs(@RequestBody Song body) {
+    public Song createSongs( Song body) {
 
         return songRepository.save(body);
     }

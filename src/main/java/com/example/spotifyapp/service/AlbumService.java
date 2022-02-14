@@ -30,7 +30,7 @@ public class AlbumService {
     }
 
 
-    public Album createAlbums(@RequestBody Album body) {
+    public Album createAlbums( Album body) {
          return albumRepository.save(body);
     }
 
